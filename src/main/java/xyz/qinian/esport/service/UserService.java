@@ -6,8 +6,10 @@ public interface UserService {
 
     User login(User user);
 
-    int register(User user);
-
     int update(User user);
+
+    User queryUserMessage(String tel);
+
+    int registerUser(User user);
 
 }

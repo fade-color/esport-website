@@ -1,0 +1,63 @@
+{
+  "code": 100,
+  "msg": "处理成功！",
+  "extend": {
+    "activities": {
+      "total": 2,
+      "list": [
+        {
+          "activityId": 2,
+          "time": 1569141561000,
+          "imageSrc": null,
+          "location": "河南科技大学",
+          "commentNum": 1,
+          "userTel": null,
+          "content": "emmmm",
+          "user": {
+            "userId": null,
+            "tel": "13083790037",
+            "password": null,
+            "userName": null,
+            "sex": null,
+            "headPath": null
+          }
+        },
+        {
+          "activityId": 1,
+          "time": 1569139233000,
+          "imageSrc": null,
+          "location": "河南科技大学",
+          "commentNum": 2,
+          "userTel": null,
+          "content": "打卡打卡",
+          "user": {
+            "userId": null,
+            "tel": "13137069383",
+            "password": null,
+            "userName": "京东东",
+            "sex": null,
+            "headPath": null
+          }
+        }
+      ],
+      "pageNum": 1,
+      "pageSize": 20,
+      "size": 2,
+      "startRow": 1,
+      "endRow": 2,
+      "pages": 1,
+      "prePage": 0,
+      "nextPage": 0,
+      "isFirstPage": true,
+      "isLastPage": true,
+      "hasPreviousPage": false,
+      "hasNextPage": false,
+      "navigatePages": 8,
+      "navigatepageNums": [
+        1
+      ],
+      "navigateFirstPage": 1,
+      "navigateLastPage": 1
+    }
+  }
+}

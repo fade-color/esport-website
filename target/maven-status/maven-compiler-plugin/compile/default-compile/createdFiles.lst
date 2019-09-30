@@ -1,0 +1,8 @@
+xyz\qinian\esport\domain\Comment.class
+xyz\qinian\esport\controller\ActivityController.class
+xyz\qinian\esport\mapper\CommentMapper.class
+xyz\qinian\esport\controller\FileController.class
+xyz\qinian\esport\service\ActivityService.class
+xyz\qinian\esport\domain\Activity.class
+xyz\qinian\esport\service\impl\ActivityServiceImpl.class
+xyz\qinian\esport\mapper\ActivityMapper.class

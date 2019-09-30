@@ -18,12 +18,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int register(User user) {
-        return 0;
+    public int update(User user) {
+        return userMapper.updateByTelSelective(user);
     }
 
     @Override
-    public int update(User user) {
-        return userMapper.updateByTelSelective(user);
+    public User queryUserMessage(String tel) {
+        return userMapper.selectByPrimaryKey(tel);
+    }
+
+    @Override
+    public int registerUser(User user) {
+        return userMapper.insertSelective(user);
     }
 }

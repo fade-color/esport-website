@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.qinian.esport.mapper.ActivityMapper">
+  <resultMap id="BaseResultMap" type="xyz.qinian.esport.domain.Activity">
+    <id column="activity_id" jdbcType="INTEGER" property="activityId" />
+    <result column="time" jdbcType="TIMESTAMP" property="time" />
+    <result column="image_src" jdbcType="VARCHAR" property="imageSrc" />
+    <result column="location" jdbcType="VARCHAR" property="location" />
+    <result column="comment_num" jdbcType="INTEGER" property="commentNum" />
+    <result column="user_tel" jdbcType="VARCHAR" property="userTel" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="xyz.qinian.esport.domain.Activity">
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+  </resultMap>
+    <resultMap id="SelectAllActivitiesResultMap" type="xyz.qinian.esport.domain.Activity">
+        <id column="activity_id" jdbcType="INTEGER" property="activityId" />
+        <result column="time" jdbcType="TIMESTAMP" property="time" />
+        <result column="image_src" jdbcType="VARCHAR" property="imageSrc" />
+        <result column="location" jdbcType="VARCHAR" property="location" />
+        <result column="comment_num" jdbcType="INTEGER" property="commentNum" />
+        <association property="user" javaType="xyz.qinian.esport.domain.User">
+            <result column="tel" property="tel" />
+            <result column="user_name" property="userName" />
+            <result column="head_path" property="headPath" />
+        </association>
+    </resultMap>
+    <resultMap extends="SelectAllActivitiesResultMap" id="SelectAllActivitiesResultMapWithBLOBs" type="xyz.qinian.esport.domain.Activity">
+        <result column="content" jdbcType="LONGVARCHAR" property="content" />
+    </resultMap>
+  <sql id="Base_Column_List">
+    activity_id, time, image_src, location, comment_num, user_tel
+  </sql>
+  <sql id="Blob_Column_List">
+    content
+  </sql>
+    <sql id="Select_All_Activities_Column_List">
+    tel,user_name,head_path,activity_id,time,image_src,location,comment_num
+  </sql>
+    <sql id="Select_All_Activities_Blob_Column_List">
+    content
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from activity
+    where activity_id = #{activityId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="SelectAllActivitiesResultMapWithBLOBs">
+    select
+    <include refid="Select_All_Activities_Column_List" />
+    ,
+    <include refid="Select_All_Activities_Blob_Column_List" />
+    from user,activity
+    WHERE tel=activity.user_tel ORDER BY time DESC
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from activity
+    where activity_id = #{activityId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="xyz.qinian.esport.domain.Activity">
+    insert into activity (activity_id, time, image_src, 
+      location, comment_num, user_tel, 
+      content)
+    values (#{activityId,jdbcType=INTEGER}, #{time,jdbcType=TIMESTAMP}, #{imageSrc,jdbcType=VARCHAR}, 
+      #{location,jdbcType=VARCHAR}, #{commentNum,jdbcType=INTEGER}, #{userTel,jdbcType=VARCHAR}, 
+      #{content,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="xyz.qinian.esport.domain.Activity">
+    insert into activity
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="activityId != null">
+        activity_id,
+      </if>
+      <if test="time != null">
+        time,
+      </if>
+      <if test="imageSrc != null">
+        image_src,
+      </if>
+      <if test="location != null">
+        location,
+      </if>
+      <if test="commentNum != null">
+        comment_num,
+      </if>
+      <if test="userTel != null">
+        user_tel,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="activityId != null">
+        #{activityId,jdbcType=INTEGER},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="imageSrc != null">
+        #{imageSrc,jdbcType=VARCHAR},
+      </if>
+      <if test="location != null">
+        #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="commentNum != null">
+        #{commentNum,jdbcType=INTEGER},
+      </if>
+      <if test="userTel != null">
+        #{userTel,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="xyz.qinian.esport.domain.Activity">
+    update activity
+    <set>
+      <if test="time != null">
+        time = #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="imageSrc != null">
+        image_src = #{imageSrc,jdbcType=VARCHAR},
+      </if>
+      <if test="location != null">
+        location = #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="commentNum != null">
+        comment_num = #{commentNum,jdbcType=INTEGER},
+      </if>
+      <if test="userTel != null">
+        user_tel = #{userTel,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where activity_id = #{activityId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="xyz.qinian.esport.domain.Activity">
+    update activity
+    set time = #{time,jdbcType=TIMESTAMP},
+      image_src = #{imageSrc,jdbcType=VARCHAR},
+      location = #{location,jdbcType=VARCHAR},
+      comment_num = #{commentNum,jdbcType=INTEGER},
+      user_tel = #{userTel,jdbcType=VARCHAR},
+      content = #{content,jdbcType=LONGVARCHAR}
+    where activity_id = #{activityId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="xyz.qinian.esport.domain.Activity">
+    update activity
+    set time = #{time,jdbcType=TIMESTAMP},
+      image_src = #{imageSrc,jdbcType=VARCHAR},
+      location = #{location,jdbcType=VARCHAR},
+      comment_num = #{commentNum,jdbcType=INTEGER},
+      user_tel = #{userTel,jdbcType=VARCHAR}
+    where activity_id = #{activityId,jdbcType=INTEGER}
+  </update>
+</mapper>

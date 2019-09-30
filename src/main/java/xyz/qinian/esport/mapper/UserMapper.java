@@ -10,7 +10,7 @@ public interface UserMapper {
 
     int insertSelective(User record);
 
-    User selectByPrimaryKey(@Param("userId") Integer userId, @Param("tel") String tel);
+    User selectByPrimaryKey(@Param("tel") String tel);
 
     User selectByTelAndPassword(@Param("tel") String tel, @Param("password") String password);
 

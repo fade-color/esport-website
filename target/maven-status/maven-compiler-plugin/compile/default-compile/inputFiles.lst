@@ -1,6 +1,14 @@
 D:\Java项目\esport\src\main\java\xyz\qinian\esport\domain\Msg.java
-D:\Java项目\esport\src\main\java\xyz\qinian\esport\service\UserService.java
-D:\Java项目\esport\src\main\java\xyz\qinian\esport\controller\UserController.java
+D:\Java项目\esport\src\main\java\xyz\qinian\esport\domain\Activity.java
 D:\Java项目\esport\src\main\java\xyz\qinian\esport\domain\User.java
+D:\Java项目\esport\src\main\java\xyz\qinian\esport\controller\ActivityController.java
+D:\Java项目\esport\src\main\java\xyz\qinian\esport\service\ActivityService.java
+D:\Java项目\esport\src\main\java\xyz\qinian\esport\service\UserService.java
+D:\Java项目\esport\src\main\java\xyz\qinian\esport\mapper\ActivityMapper.java
+D:\Java项目\esport\src\main\java\xyz\qinian\esport\service\impl\ActivityServiceImpl.java
+D:\Java项目\esport\src\main\java\xyz\qinian\esport\domain\Comment.java
+D:\Java项目\esport\src\main\java\xyz\qinian\esport\mapper\CommentMapper.java
+D:\Java项目\esport\src\main\java\xyz\qinian\esport\controller\UserController.java
+D:\Java项目\esport\src\main\java\xyz\qinian\esport\controller\FileController.java
 D:\Java项目\esport\src\main\java\xyz\qinian\esport\service\impl\UserServiceImpl.java
 D:\Java项目\esport\src\main\java\xyz\qinian\esport\mapper\UserMapper.java

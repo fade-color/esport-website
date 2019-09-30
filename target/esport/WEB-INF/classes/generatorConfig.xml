@@ -38,19 +38,16 @@
         <javaClientGenerator targetPackage="xyz.qinian.esport.mapper"
                              targetProject="src/main/java" type="XMLMAPPER" />
 
-<!--        <table schema="javatest" tableName="user" enableCountByExample="false"-->
+<!--        <table schema="esport" tableName="user" enableCountByExample="false"-->
 <!--               enableUpdateByExample="false" enableDeleteByExample="false"-->
 <!--               enableSelectByExample="false" selectByExampleQueryId="false">-->
 <!--        </table>-->
-<!--        <table schema="javatest" tableName="record" enableCountByExample="false"-->
-<!--               enableUpdateByExample="false" enableDeleteByExample="false"-->
-<!--               enableSelectByExample="false" selectByExampleQueryId="false">-->
-<!--        </table>-->
-<!--        <table schema="javatest" tableName="problem" enableCountByExample="false"-->
-<!--               enableUpdateByExample="false" enableDeleteByExample="false"-->
-<!--               enableSelectByExample="false" selectByExampleQueryId="false">-->
-<!--        </table>-->
-        <table schema="esport" tableName="user" enableCountByExample="false"
+
+        <table schema="esport" tableName="activity" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false">
+        </table>
+        <table schema="esport" tableName="comment" enableCountByExample="false"
                enableUpdateByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" selectByExampleQueryId="false">
         </table>
